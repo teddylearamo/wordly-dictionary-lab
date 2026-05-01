@@ -39,3 +39,23 @@ function fetchWord(word) {
     });
 }
 
+function displayResult(data) {
+  const wordData = data[0];
+
+  const word = wordData.word;
+  const phonetic = wordData.phonetic || "N/A";
+
+  const meaning = wordData.meanings[0];
+  const partOfSpeech = meaning.partOfSpeech;
+
+  const definition = meaning.definitions[0].definition;
+  const example = meaning.definitions[0].example || "No example available";
+
+  resultDiv.innerHTML = `
+    <h2>${word}</h2>
+    <p><strong>Pronunciation:</strong> ${phonetic}</p>
+    <p><strong>Part of Speech:</strong> ${partOfSpeech}</p>
+    <p><strong>Definition:</strong> ${definition}</p>
+    <p><strong>Example:</strong> ${example}</p>
+  `;
+}
