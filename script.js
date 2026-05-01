@@ -1,7 +1,11 @@
+//  SELECT ELEMENTS
+
 const form = document.getElementById("search-form");
 const input = document.getElementById("word-input");
 const resultDiv = document.getElementById("result");
 const errorDiv = document.getElementById("error");
+
+// EVENT LISTENER
 
 form.addEventListener("submit", function (e) {
   e.preventDefault();
@@ -18,6 +22,7 @@ form.addEventListener("submit", function (e) {
   fetchWord(word);
 });
 
+// FETCH FUNCTION
 
 function fetchWord(word) {
   // clear old results
@@ -38,6 +43,8 @@ function fetchWord(word) {
       errorDiv.textContent = error.message;
     });
 }
+ 
+// DISPLAY FUNCTIONS
 
 function displayResult(data) {
   const wordData = data[0];
@@ -58,4 +65,8 @@ function displayResult(data) {
     <p><strong>Definition:</strong> ${definition}</p>
     <p><strong>Example:</strong> ${example}</p>
   `;
+
+//
+document.body.style.backgroundColor = "#68b86f";
+
 }
